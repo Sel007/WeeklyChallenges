@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,52 +10,93 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            throw new NotImplementedException();
+            return Char.IsLetter(c);
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
-            throw new NotImplementedException();
+            if(vals.Length % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool IsNumberEven(int number)
         {
-            throw new NotImplementedException();
+            return number % 2 == 0 ? true : 
+                false;
         }
 
         public bool IsNumberOdd(int num)
         {
-            throw new NotImplementedException();
+            return num % 2 != 0 ? true : false;
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            throw new NotImplementedException();
+            return numbers == null || numbers.Count() < 1 ? 0
+                : numbers.Max() + numbers.Min(); 
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
         {
-            throw new NotImplementedException();
+            return str1.Length > str2.Length 
+                ? str2.Length : str1.Length;
         }
 
         public int Sum(int[] numbers)
         {
-            throw new NotImplementedException();
+            return numbers == null ? 0 : numbers.Sum();
         }
 
         public int SumEvens(int[] numbers)
         {
-            throw new NotImplementedException();
+            return numbers == null ? 0
+                : numbers.Where(x => x % 2 == 0).Sum();
         }
 
         public bool IsSumOdd(List<int> numbers)
+
+        
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                return false;
+            int sum = numbers.Sum();
+            if (sum % 2 != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
-            throw new NotImplementedException();
+            return number <= 0 ? 0 : number / 2;
+        
+            //Long way:
+        //    if (number < 0)
+        //    {
+        //        return 0;
+        //    } 
+        //    int i = 0;
+        //    int oddCounter = 0;
+        //    while (i < number)
+        //    {
+        //        if (i %2 != 0)
+        //        {
+        //            oddCounter++;
+        //        }
+        //        i++;
+        //    }
+        //    return oddCounter;
         }
     }
 }
