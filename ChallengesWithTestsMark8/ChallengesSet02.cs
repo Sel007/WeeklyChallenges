@@ -61,7 +61,6 @@ namespace ChallengesWithTestsMark8
 
         public bool IsSumOdd(List<int> numbers)
 
-        
         {
             if (numbers == null)
                 return false;
