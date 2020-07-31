@@ -7,12 +7,26 @@ namespace ChallengesWithTestsMark8
     {
         public int GetNextNumberDivisibleByN(int startNumber, int n)
         {
-            throw new NotImplementedException();
+
+            startNumber++;
+            while(startNumber % n != 0)
+            {
+                startNumber++;
+                if (startNumber % n == 0)
+                    break;
+            }
+            return startNumber;
         }
 
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
         {
-            throw new NotImplementedException();
+            foreach (var biz in businesses)
+            {
+                if (biz.TotalRevenue == 0)
+                    biz.Name = "CLOSED";
+                if (biz.TotalRevenue < biz.TotalExpenses)
+                    biz.Name = "CLOSED";
+            }
         }
 
         public bool IsAscendingOrder(int[] numbers)
